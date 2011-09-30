@@ -1,0 +1,29 @@
+<fieldset id="frontpage-text">
+  <p>
+    Welcome to the Redpill Linpro incident tracker.
+  </p>
+
+  <p>
+    This site will be used to track future divertions and past incidents. Incidents will be recorded if they happen, and future divertions will be notified through this site.
+  </p>
+</fieldset>
+
+<% if @firsttimerun -%>
+<div class="box red_box medium_vspace">
+  <p>
+    No data existed in your database, so a user with admin-access has been created!
+  </p>
+  <p>Username: admin</p>
+  <p>Password: admin</p>
+  <p>This notice will remain until any other data is created.</p>
+</div>
+<% end -%>
+
+<fieldset class="login">
+  <div id="login_form"></div>
+</fieldset>
+
+<% unless logged_in? -%>
+  <%= javascript_tag(remote_function(:url => {:controller => :auth, :action => :login }, :method => :get, :update => :login_form)) %>
+<% end -%>
+

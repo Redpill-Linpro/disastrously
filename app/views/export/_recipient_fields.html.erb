@@ -1,0 +1,21 @@
+<div>
+  <b><%= recipients.keys.size - groups.size %> additional groups</b> (shown in
+  italic) are (directly or indirectly) members of the <b><%= groups.size %>
+  selected</b> groups. Only groups that have the same recipient field in
+  parantheses as one of the selected delivery methods (above) will receive
+  notice.
+</div>
+
+<ul class="delivery-table">
+  <% group_names = groups.map {|g| g.name} %>
+  <% rec_keys = recipients.keys.human_sort %>
+  <% rec_keys.each do |group| %>
+
+    <li class="<%= group_names.include?(group) ? "existing" : "additional" %>">
+      <%- delivery_types = recipients[group] -%>
+      <%- delivery_types = delivery_types.keys.map { |dt_code| dt_code if delivery_types[dt_code] }.join(", ") -%>
+
+      <%= "%s%s" % [group, delivery_types.chars.any? ? " (#{delivery_types})" : ""] %>
+    </li>
+  <% end %>
+</ul>

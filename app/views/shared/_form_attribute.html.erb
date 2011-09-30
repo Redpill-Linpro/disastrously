@@ -1,0 +1,25 @@
+<% scope ||= nil %>
+
+<%
+  if @record.is_a? Incident and Incident::OVERRIDEABLE.include? column.name.to_s
+    options = active_scaffold_input_options(column, scope)
+    affects_column?(@record, column.name, options[:name]) ? style="" : style = "display: none;"
+  else
+    style = ""
+  end
+%>
+
+<dl style="<%= style %>">
+  <dt>
+    <label for="<%= active_scaffold_input_options(column, scope)[:id] %>"><%= column.label %></label>
+  </dt>
+  <dd>
+    <%= active_scaffold_input_for column, scope %>
+    <% if column.options.is_a?(Hash) && column.options[:update_column] -%>
+      <%= loading_indicator_tag(:action => :render_field, :id => params[:id]) %>
+    <% end -%>
+    <% if column.description.present? -%>
+      <span class="description"><%= column.description %></span>
+    <% end -%>
+  </dd>
+</dl>

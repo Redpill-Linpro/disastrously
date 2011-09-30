@@ -1,0 +1,20 @@
+*.swp
+
+# Ignore machine specific stuff:
+.bundle/
+.vagrant
+vendor/bundle/
+
+log/
+tmp/
+coverage/
+
+# config files
+config/database.yml
+config/notification.yml
+config/email.yml
+
+# Ignore generated documentation:
+doc/*.pdf
+doc/*.html
+doc/html/

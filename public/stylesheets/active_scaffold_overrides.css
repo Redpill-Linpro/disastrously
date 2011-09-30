@@ -1,0 +1,92 @@
+.active-scaffold
+{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.active-scaffold fieldset
+{
+  border-style: solid;
+}
+
+.active-scaffold textarea
+{
+  width: 100%;
+  height: 20em;
+  padding: 0.3em;
+}
+
+.active-scaffold .show-view dt
+{
+  width: 13em;
+}
+
+.active-scaffold .checkbox-list
+{
+  -moz-column-width: 9em;
+  -webkit-column-width: 9em;
+  column-width: 9em;
+
+  /* make sure the full width of the page is used */
+  -moz-column-count: 20;
+  -webkit-column-count: 20;
+  column-count: 20;
+}
+
+.active-scaffold .checkbox-list li
+{
+  display: inline-block;
+  width: 11em;
+}
+
+.active-scaffold li.form-element dd
+{
+  float: none;
+  margin-left: 12em;
+  margin-right: 1em;
+}
+
+.active-scaffold li.form-element label.value
+{
+  font-weight: bold;
+}
+
+.active-scaffold .errorExplanation
+{
+  background-color: #555;
+  color: white;
+
+  border: 1px solid #c2c2c2;
+}
+
+.active-scaffold .errorExplanation h2
+{
+  background-color: #633;
+  color: #fdd;
+}
+
+.active-scaffold .errorExplanation ul li
+{
+  padding: 0.1em;
+  font-size: small;
+}
+
+/* Form :: Association Sub-Forms
+   ============================== */
+
+.active-scaffold .horizontal-sub-form td label {
+display: none;
+}
+
+.active-scaffold .sub-form .checkbox-list {
+background-color: inherit;
+border: none;
+}
+
+.active-scaffold .sub-form .checkbox-list label {
+display: inline;
+}
+
+.active-scaffold dd p {
+  margin: 1em 0;
+}

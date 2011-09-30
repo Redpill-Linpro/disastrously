@@ -1,0 +1,41 @@
+<ol class="form" <%= 'style="display: none;"' if columns.collapsed -%>>
+  <% columns.each :for => @record do |column| -%>
+
+  <% if is_subsection? column -%>
+    <li class="sub-section">
+      <h5><%= column.label %> (<%= link_to_visibility_toggle(:default_visible => !column.collapsed) -%>)</h5>
+      <%= render :partial => 'form', :locals => { :columns => column } %>
+    </li>
+
+  <% elsif is_subform? column and !override_form_field?(column) -%>
+    <li class="sub-form <%= active_scaffold_config_for(column.association.klass).subform.layout %>-sub-form" id="<%= sub_form_id(:association => column.name) %>">
+      <%= render :partial => form_partial_for_column(column), :locals => { :column => column } -%>
+    </li>
+
+  <% else -%>
+    <% if %w(users member_of).include? column.name.to_s -%>
+      <li class="form-element <%= 'required' if column.required? %>">
+        <div class="<%= column.name.to_s %>">
+          <%= render :partial => form_partial_for_column(column), :locals => { :column => column } -%>
+        </div>
+      </li>
+
+      <li class="form-element">
+        <dl>
+          <dd>
+            <label><%= link_to_function "Select all",  "$$('.#{column.name} input').each(function(box){box.checked=true});" %></label>
+            /
+            <label><%= link_to_function "Select none", "$$('.#{column.name} input').each(function(box){box.checked=false});" %></label>
+          </dd>
+        </dl>
+      </li>
+    <% else -%>
+      <li class="form-element <%= 'required' if column.required? %>">
+        <%= render :partial => form_partial_for_column(column), :locals => { :column => column } -%>
+      </li>
+    <% end -%>
+
+  <% end -%>
+  <% end -%>
+
+</ol>

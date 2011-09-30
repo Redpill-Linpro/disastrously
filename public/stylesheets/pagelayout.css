@@ -1,0 +1,416 @@
+/* PAGELAYOUT CSS - 20081212 */
+
+
+/* FULL PAGE */
+
+body
+{
+    background: #e0e5e5 url(../images/body-bg.png) top left repeat-x;
+    text-align: center;
+}
+
+div#page
+{
+    background-color: #ffffff;
+    width: 960px;
+    margin: 0 auto 0 auto;
+    text-align: left;
+}
+
+
+/* HEADER */
+
+div#header
+{
+    background: url(../images/header-topline.png) top left no-repeat;
+    padding: 10px 0 10px 0;
+    position: relative;
+}
+
+div#logo
+{
+    position: absolute;
+    bottom: 12px;
+    left: 19px;
+}
+
+div#logo h1
+{
+    margin: 0;
+}
+
+div#logo a
+{
+    width: 150px;
+    height: 65px;
+    background: url(../images/redpill-linpro-logo.png) top left no-repeat;
+    text-decoration: none;
+    display: block;
+}
+
+div#logo a:hover
+{
+    background-position: bottom left;
+}
+
+
+/* TOP MENU */
+
+div#topmenu
+{
+   background-color: #d7001c;
+   padding: 0 0 0 110px;
+   position: relative;
+}
+
+div#searchbox
+{
+   width: 146px;
+   text-align: right;
+   position: absolute;
+   top: 10px;
+   right: 8px;
+   z-index: 2;
+}
+
+input#searchtext
+{
+    font-size: 0.85em;
+    width: 88px;
+    padding: 0;
+    border: 1px solid #d8d8da;
+    float: left;
+}
+
+input#searchbutton
+{
+    font-size: 0.85em;
+    color: #ffffff;
+    background: #000000 url(../images/searchbutton-bg.png) top left repeat-y;
+    border: 1px solid #34393b;
+    float: left;
+}
+
+div#languages
+{
+    position: absolute;
+    top: -8px;
+    right: 65px;
+}
+
+div#languages ul
+{
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+div#languages li
+{
+    margin: 0 0 0 8px;
+    padding: 0;
+    float: left;
+    list-style-type: none;
+}
+
+div#topcontentmenu
+{
+    position: relative;
+    z-index: 1;
+}
+
+div#topcontentmenu ul
+{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
+
+div#topcontentmenu li
+{
+    background: url(../images/menu-divider.png) right 50% no-repeat;
+    margin: 0 2px 0 0;
+    padding: 0 7px 0 0;
+    float: left;
+    list-style-type: none;
+    position: relative;
+}
+
+div#topcontentmenu li.last
+{
+    background: none;
+}
+
+div#topcontentmenu li a
+{
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 10px 5px 5px 5px;
+    border-bottom: 5px solid #d7001c;
+    text-decoration: none;
+    float: left;
+    white-space: nowrap;
+}
+
+div#topcontentmenu li a:hover
+{
+/*     border-bottom-color: #af0017; */
+}
+
+div#topcontentmenu li.selected a
+{
+    color: #000000;
+    border-bottom-color: #000000;
+}
+
+div#topcontentmenu li div.submenu
+{
+    position: absolute;
+    top: 2.8em;
+    display: none;
+}
+
+div#topcontentmenu li.current div.submenu
+{
+    width: auto;
+    display: block;
+    background-color: #f0f0f0;
+}
+
+div#topcontentmenu li.current div.submenu ul
+{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+div#topcontentmenu li.current div.submenu li
+{
+    margin: 0 1em 0 0;
+    padding: 0;
+    float: left;
+    list-style-type: none;
+}
+
+div#topcontentmenu iframe /* Only used for IE */
+{
+    position: absolute;
+    top: 0;
+}
+
+div#topcontentmenu div.dropdownmenu
+{
+    position: absolute;
+    top: 2.8em;
+    left: 0;
+    display: none;
+    z-index: 1;
+}
+
+div#topcontentmenu div.dropdownmenu ul
+{
+    min-width: 10em;
+    border: 1px #d7001c;
+    border-style: none solid solid solid;
+}
+
+div#topcontentmenu li li
+{
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    float: none;
+}
+
+div#topcontentmenu li li a
+{
+    font-size: 0.85em;
+    font-weight: normal;
+    color: #000000;
+    background-image: none;
+    padding: 3px 6px 4px 6px;
+    border: none;
+    text-decoration: none;
+    display: block;
+    white-space: pre;
+    position: relative;
+    float: none;
+}
+
+div#topcontentmenu li.current a
+{
+    background-color: #c0c0c0;
+}
+
+div#topcontentmenu ul ul, div#topcontentmenu li.current li a
+{
+    background-color: #ffffff;
+}
+
+div#topcontentmenu li li a:hover
+{
+    color: #ffffff;
+    background-color: #546060;
+}
+
+/* BREADCRUMBS */
+
+div#path p
+{
+    margin-bottom: 0;
+    padding-left: 115px;
+    font-size:0.85em;
+    float: left;
+}
+
+/* HEADER BANNER */
+
+div#headerbanner
+{
+    width: 410px;
+    height: 80px;
+    margin: 7px 0 0 254px;
+    float: left;
+    display: inline;
+}
+
+/* HEADER INFO */
+
+div#headerinfo
+{
+    width: 270px;
+    margin: 7px 0 0 10px;
+    float: left;
+    display: inline;
+}
+
+
+/* MAIN AREA */
+
+div#main
+{
+    padding: 0 296px 10px 254px;
+}
+
+div#main-minheight
+{
+    width: 1px;
+    height: 440px;
+    margin-left: -255px;
+    float: left;
+    display: inline;
+}
+
+div#main-float
+{
+    width: 100%;
+    float: left;
+}
+
+/* BOTTOM MENU */
+
+div#bottommenu
+{
+    background: #d7001c url(../images/footer-bottomline.png) bottom left no-repeat;
+    padding: 0 110px 10px 110px;
+}
+
+div#bottommenu ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+div#bottommenu li
+{
+    background: url(../images/menu-divider.png) right 50% no-repeat;
+    margin: 0 5px 0 0;
+    padding: 0 10px 0 0;
+    float: left;
+    list-style-type: none;
+    letter-spacing: 1px;
+}
+
+div#bottommenu li.last
+{
+    background: none;
+}
+
+div#bottommenu li a
+{
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 10px 5px 10px 5px;
+    text-decoration: none;
+    float: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+div#bottommenu-minheight
+{
+    height: 2.8em;
+    width: 1px;
+    float: right;
+}
+
+/* FOOTER */
+
+div#footer
+{
+    width: 960px;
+    margin: 5px auto 0 auto;
+    text-align: left;
+}
+
+div#login
+{
+    font-size: 0.85em;
+    color: #546263;
+    margin: 0 9px 0 0;
+    float: right;
+    display: inline;
+}
+
+div#login p
+{
+    font-weight: bold;
+    margin: 0;
+}
+
+div#login a
+{
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #ffffff;
+    background: #000000 url(../images/searchbutton-bg.png) top left repeat-y;
+    padding: 0 0.75em 0.1em 0.75em;
+    border: 1px solid #34393b;
+    vertical-align: top;
+    text-decoration: none;
+}
+
+div#footer address
+{
+    font-size: 0.85em;
+    font-weight: bold;
+    font-style: normal;
+    margin-left: 114px;
+    float: left;
+    display: inline;
+}
+
+div#footer address a
+{
+    color: #000000;
+    text-decoration: none;
+}
+
+div#footer address a:hover
+{
+    text-decoration: underline;
+}

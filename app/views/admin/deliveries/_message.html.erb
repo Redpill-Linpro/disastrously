@@ -1,0 +1,43 @@
+<%-
+  if handled_by = incident.inherit_column(:handled_by)
+    if handled_by.full_name.to_s.any?
+      handled_by_name = handled_by.full_name
+    else
+      handled_by_name = nil
+    end
+  end
+
+  unknown_start = %(Note: The exact time that this event began is still unclear at this point.\n) if incident.unknown_start
+  ongoing = %(Note: This event is still ongoing as of writing.\n) if incident.inherit_column(:ongoing)
+  severity = %(Severity: %s.) % incident.inherit_column(:severity).title
+
+  sla_time = (time = incident.inherit_column :sla_time) > 0 ? distance_of_time_in_words(time).capitalize : nil
+  sw_time  = (time = incident.inherit_column :service_window_time) > 0 ? distance_of_time_in_words(time).capitalize : nil
+
+-%>
+<%= incident.inherit_column :title %>
+
+This message is sent to you in order to inform about an event that affects the
+operation of one or more of your systems hosted at our company.
+
+<%= unknown_start -%>
+<%- if (timestamps = incident.inherit_column(:timestamps).sort_by(&:datetime)).any? -%>
+<%- prev = nil -%>
+The following significant events have been noted:
+
+<%- timestamps.each do |ts| -%>
+<%- remarks = IncidentTimestamp.compare(prev, ts) -%>
+<%= ts.datetime %> <%= "(#{remarks}) " if remarks %><%= "- %s" % ts.comment if ts.comment.to_s.any? %>
+<%- prev = ts -%>
+<%- end -%>
+<%- end -%>
+<%= %(\nTotal SLA time: %s.) % sla_time if sla_time -%>
+<%= %(\nTotal Service window time: %s.) % sw_time if sw_time %>
+
+<%= ongoing -%>
+<%= incident.inherit_column(:description).strip.word_wrap %>
+
+<%= severity %>
+
+Regards,
+<%= %(%s\n) % handled_by_name if handled_by_name -%>

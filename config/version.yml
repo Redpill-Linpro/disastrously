@@ -1,0 +1,21 @@
+#
+# Current Disastrously version.
+#
+# Using this file makes it possible to:
+# - Track the current version number without version control
+# - Track the version number without the tags from version control
+#
+# Any of these can safely be commented out (but you probably want to keep at
+# least major version number).
+#
+
+#
+# Remember to also update CHANGES.md whenever this file is updated.
+#
+major:  2
+minor:  1
+tiny:   3
+#patch:  beta1
+
+# Use YYYY-MM-DD since YAML will automatically convert it to a Date object.
+date:   2011-09-29

@@ -1,0 +1,17 @@
+<table style="border-collapse: collapse">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Start time</th>
+    <th>End time</th>
+  </tr>
+
+  <% if @incidents.any? %>
+    <%= render :partial => "first_incident", :locals => { :incident => @incidents.shift } %>
+  <% end %>
+
+  <% @incidents.each do |incident| -%>
+    <%= render :partial => "incident", :locals => { :incident => incident } %>
+  <% end -%>
+
+</table>

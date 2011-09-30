@@ -1,0 +1,96 @@
+#
+# Configuration file for disastrously:sync rake task.
+#
+# Keys/values prefixed with a colon become Ruby symbols.
+#
+---
+#
+# Configuration for LDAP to SQL synchronisation.
+#
+:from_ldap:
+  :connection:
+    :host: ldap.example.com
+    :port: 389
+    :auth:
+      :method: :anonymous
+      #:method: :simple
+      #:username: "cn=manager, dc=example, dc=com"
+      #:password: "****"
+
+  # The from_ldap task will perform the following actions in the given order:
+  :perform_actions:
+    - :store_group_memberships
+    - :delete_group_memberships
+    - :delete_groups
+    - :update_users
+    - :add_ldap_customers
+    - :add_ldap_groups
+    - :create_group_memberships
+    - :abort
+
+  :search:
+    :user:
+      :base:   "ou=People,l=somewhere,dc=example,dc=no"
+      :filter: "(objectClass=person)"
+
+    :customer:
+      :base:   "ou=Customers,dc=example,dc=no"
+      :filter: "(objectClass=customer)"
+
+    :group:
+      :base:   "ou=Customer Groups,dc=example,dc=no"
+      :filter: "(objectClass=customerGroup)"
+
+  # Note: LDAP differntiates between customers and groups, but Disastrously
+  # doesn't. In LDAP a group is a collection of customers.
+
+  # Map database columns to ldap fields:
+  :sync:
+    :user:
+      :id:        :uidnumber
+      :username:  :uid
+      :full_name: :cn
+
+    :customer:
+      :id:                :o
+      :name:              :o
+      :description:       :cn
+      :notification_mail: :slamail
+
+    :group:
+      :id:                :cn
+      :name:              :cn
+
+  # The data from LDAP always map to an array even though it's sometimes supposed
+  # to be a single field.
+  :sync_single_fields:
+    :user:
+      :id:
+      :username:
+      :full_name:
+
+    :customer:
+      :id:
+      :name:
+      :description:
+      :notification_mail:
+
+    :group:
+      :id:
+      :name:
+
+  # How to fetch the group membership data:
+  :group_membership:
+    :base_from_ldap:  :group
+    :filter:          "(cn=*)"
+
+  # Default values for database columns:
+  :default:
+    :user:
+      :user_type_id:  1
+
+    :customer:
+      :reply_to: 'no-reply@example.com'
+
+    :group:
+      :reply_to: ''

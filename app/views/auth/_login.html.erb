@@ -1,0 +1,46 @@
+<% if DisastrouslyController::USE_HTTP_AUTH -%>
+<div class="yellow_box">
+  <div>
+    <p>
+      Normal authentication has been disabled.
+    </p>
+    <p>
+      Please restart your browser or clear your browser authentication cache
+      to authenticate through your browser.
+    </p>
+  </div>
+</div>
+
+<% else -%>
+<div class="blue_box">
+  <h3>Login</h3>
+
+    <% if flash[:login_notice] %>
+      <fieldset class="yellow_box box medium_vspace" style="text-align: center">
+        <%= flash[:login_notice] %>
+      </fieldset>
+    <% end -%>
+
+    <fieldset class="medium_size">
+      <% remote_form_for :user,
+            :url => { :controller => :auth, :action => :login },
+            :update => :login_form do |f| -%>
+
+        <fieldset>
+          <span style="float: left">Username</span>
+          <%= f.text_field :username, :size => 20, :style => "float: right" %>
+        </fieldset>
+
+        <fieldset class="small_vspace_top">
+          <span style="float: left">Password</span>
+          <%# always clear password field %>
+          <%= f.password_field :password, :size => 20, :value => "", :style => "float: right" %>
+        </fieldset>
+
+        <%= f.submit "Login", :class => "submit", :style => "float: right" %>
+
+      <% end -%>
+    </fieldset>
+
+</div>
+<% end -%>

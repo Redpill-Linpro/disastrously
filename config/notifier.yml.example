@@ -1,0 +1,31 @@
+#
+# Static notification settings used by delivery model.
+# These settings are set on all notification mails that are sent out.
+#
+# Available options:
+#   :from:      (required)
+#   :reply_to:  (required)
+#   :cc:
+#   :bcc:
+#
+# The reply to address will be used when none is specified for the
+# group that recieves the notification. It will also be used to receive
+# error notifications when a notification fails to deliver.
+
+development:
+  :email:
+    :from:      "Incident Tracker <incident@example.com>"
+    :bcc:       "Incident Log <incident-log@example.com>"
+    :reply_to:  "no-reply@example.com"
+
+staging:
+  :email:
+    :from:      "Incident Tracker <incident@example.com>"
+    :bcc:       "Incident Log <incident-log@example.com>"
+    :reply_to:  "no-reply@example.com"
+
+production:
+  :email:
+    :from:      "Incident Tracker <incident@example.com>"
+    :bcc:       "Incident Log <incident-log@example.com>"
+    :reply_to:  "no-reply@example.com"

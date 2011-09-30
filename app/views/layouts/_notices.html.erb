@@ -1,0 +1,18 @@
+<% if flash[:error_msg].to_s.chars.any? -%>
+  <div class="medium_vspace box red_box">
+    <%= flash[:error_msg] %>
+  </div>
+<% end -%>
+
+<% if flash[:warning_msg].to_s.chars.any? -%>
+  <div class="medium_vspace box yellow_box">
+    <%= flash[:warning_msg] %>
+  </div>
+<% end -%>
+
+<% if flash[:info_msg].to_s.chars.any? -%>
+  <div class="medium_vspace box blue_box">
+    <%= flash[:info_msg] %>
+  </div>
+<% end -%>
+

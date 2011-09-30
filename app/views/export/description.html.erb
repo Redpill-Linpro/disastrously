@@ -1,0 +1,36 @@
+<fieldset>
+
+  <legend>Description</legend>
+
+  <p>The export urls available are:</p>
+
+
+  <table>
+
+    <tr>
+      <th>Name</th>
+      <th>HTTP Method</th>
+      <th>Path</th>
+      <th>Routes to</th>
+    </tr>
+
+    <% @routes.each do |route| %>
+      <tr>
+        <td><%= route[:name] %></td>
+        <td align="center"><%= route[:verb] %></td>
+        <td><%= route[:segs] %></td>
+        <td><%= route[:reqs].inspect %></td>
+      </tr>
+    <% end %>
+
+  </table>
+
+  <p>Where:</p>
+
+  <ul>
+    <li>:type - incidents | service_windows</li>
+    <li>:name - Name of user</li>
+    <li>:group - Name of group</li>
+  </ul>
+</fieldset>
+

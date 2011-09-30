@@ -1,0 +1,13 @@
+<%# Since we're exporting this I'm using inline stylesheets to make things look nice across the board ... %>
+
+<% padding = 'padding-top: 1em; padding-bottom: 1em;' %>
+<% border = 'border-top: 1px solid #868E8E;' %>
+<% top = 'vertical-align: top;' %>
+<% right_padding = 'padding-right: 1em' %>
+
+<tr class="first">
+  <td <%= style(padding, top) %>><%= incident.title %></td>
+  <td <%= style(padding, top) %>><%= incident.description.gsub("\n", "<br/>") %></td>
+  <td <%= style(padding, top, right_padding) %>><%= incident.started_at %></td>
+  <td <%= style(padding, top) %>><%= incident.ended_at %></td>
+</tr>

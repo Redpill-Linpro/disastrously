@@ -1,0 +1,64 @@
+.admin-menu
+{
+  width: 100%;
+  background-color: #336;
+  border: 1px solid #c2c2c2;
+}
+
+table.admin-menu
+{
+  border-spacing: 0;
+}
+
+.admin-menu ul
+{
+  clear: both;
+  margin: 0;
+  padding: 0;
+
+  /* no bullets */
+  list-style-type: none;
+  /* don't create space for bullets */
+  list-style-position: outside;
+}
+
+.admin-menu a
+{
+  color: white;
+  font-weight: bold;
+  padding: 0.3em 0.7em;
+  text-align: center;
+}
+
+.admin-menu li
+{
+  float: left;
+  padding: 0.3em 0;
+}
+
+.admin-menu a:hover
+{
+  background: #55f;
+}
+
+.admin-menu .space
+{
+  width: 3em;
+  text-align: center;
+}
+
+.admin-menu td
+{
+  color: white;
+  text-align: right;
+  font-weight: bold;
+}
+
+.admin-menu td.title
+{
+  color: #ddf;
+
+  padding-right: 0.7em;
+  font-weight: bold;
+}
+

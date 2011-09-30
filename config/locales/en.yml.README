@@ -1,0 +1,7 @@
+#
+# The actual en.yml file used by Rails can probably be found here:
+# /usr/lib/ruby/gems/1.8/gems/activerecord-2.3.11/lib/active_record/locale/en.yml
+#
+# The reason I haven't copied it into this project is to prevent "bit rot" if
+# the file is updated in Rails without being updated here.
+#

@@ -1,0 +1,41 @@
+<fieldset>
+
+  <legend>SLA for group <%= @group.name %> the last 12 months</legend>
+
+  <table>
+    <tr>
+      <th>Month</th>
+
+      <% if Rails.env.development? %>
+        <th>Downtime</th>
+        <th>Total time in month</th>
+      <% end %>
+
+      <th>Uptime in percent</th>
+
+    </tr>
+
+    <% @slas.each do |date, sla| -%>
+      <tr>
+        <td><%= date.year %> <%= Date::MONTHNAMES[date.month] %></td>
+
+        <% if Rails.env.development? %>
+          <td align="right"><%= seconds_to_text sla[:downtime_secs]  %></td>
+          <td align="center"><%= seconds_to_text sla[:total_secs], "%03d:%02d:%02d" %></td>
+        <% end %>
+
+        <% if sla[:sla].is_a? Numeric %>
+          <td align="right"><%= "%.3f" % sla[:sla] %>%</td>
+        <% else %>
+          <td align="right"><%= sla[:sla] %></td>
+        <% end %>
+
+      </tr>
+    <% end -%>
+  </table>
+
+  <% if Rails.env.development? %>
+    <p>Note: <b>Downtime</b> and <b>Total time in month</b> (and this message) is only visible in development.</p>
+  <% end %>
+
+</fieldset>

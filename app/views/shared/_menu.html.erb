@@ -1,0 +1,65 @@
+<% if current_user -%>
+<table class="menu">
+
+  <tr>
+    <% if @menu.any? -%>
+    <th class="group-header">Incidents from a specific group:</td>
+    <% else -%>
+    <th></th>
+    <% end -%>
+
+    <th class="main-items">
+      <% if current_user.user_type.admin_access? or current_user.user_type.create_group_incidents? -%>
+        <%= link_to "New Incident", new_incident_url %>
+      <% end -%>
+
+      <%= link_to "Personal History", list_history_url %>
+
+      <% if DisastrouslyController::USE_HTTP_AUTH -%>
+        <div style="padding: 0.3em 1em; display: inline">Logged in as <%= current_user.username %></div>
+      <% else -%>
+        <%= link_to "Logout #{current_user.username}", logout_url %>
+      <% end -%>
+    </th>
+  </tr>
+
+  <% if @menu.any? -%>
+  <tr>
+    <td colspan="2">
+      <ul class="menu">
+        <% @menu.each do |item| -%>
+          <% name, url, style = *item -%>
+          <li style="<%= style %>"><%= link_to name, url, :class => "box" %></li>
+        <% end -%>
+      </ul>
+    </td>
+  </tr>
+  <% end -%>
+
+  <% if @admin_menu.any? -%>
+  <tr class="admin-menu">
+
+    <td>
+      <ul>
+        <% @admin_menu.each do |controller| -%>
+          <% if controller -%>
+            <li>
+              <%= link_to controller.sub(/.*?\//, "").gsub(/_(.)/) { " " + $1 }.capitalize,
+                    url_for(:controller => controller, :action => "list") %>
+            </li>
+          <% else -%>
+            <li><div class="space">—</div></li>
+          <% end -%>
+        <% end -%>
+      </ul>
+    </td>
+
+    <td class="title">
+      Admin
+    </td>
+
+  </tr>
+  <% end -%>
+
+</table>
+<% end -%>

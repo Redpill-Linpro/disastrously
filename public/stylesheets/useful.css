@@ -1,0 +1,140 @@
+.shadow {
+  -moz-box-shadow:    0px 0px 8px black;
+  -webkit-box-shadow: 0px 0px 8px black;
+  box-shadow:         0px 0px 8px black;
+}
+
+.inner-shadow {
+  -moz-box-shadow:    0px 0px 5em gray inset;
+  -webkit-box-shadow: 0px 0px 5em gray inset;
+  box-shadow:         0px 0px 5em gray inset;
+}
+
+.medium_vspace_bottom,
+.medium_vspace
+{
+  margin-bottom: 1em;
+}
+
+.medium_vspace_top,
+.medium_vspace
+{
+  margin-top: 1em;
+}
+
+.small_vspace_top,
+.small_vspace
+{
+  margin-top: 0.5em;
+}
+
+.small_vspace_bottom,
+.small_vspace
+{
+  margin-bottom: 0.5em;
+}
+
+.hspace_left,
+.hspace
+{
+  margin-left: 1em;
+}
+
+.hspace_right,
+.hspace
+{
+  margin-right: 1em;
+}
+
+.small_hspace_right,
+.small_hspace
+{
+  margin-right: 0.5em;
+}
+
+.small_hspace_left,
+.small_hspace
+{
+  margin-left: 0.5em;
+}
+
+.container
+{
+  border: 0 solid black;
+  margin: 0;
+  padding: 0;
+}
+
+.blue_box,
+.yellow_box,
+.gray_box,
+.lightgray_box,
+.red_box,
+.box
+{
+  padding-left: 1em;
+  padding-right: 1em;
+
+  display: block;
+}
+
+.box
+{
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.blue_box
+{
+  background-color: #eeeeff;
+  border: 1px solid #ccccff;
+}
+
+.gray_box
+{
+  background-color: #e7eceb;
+  border: 1px solid #b7bcbb;
+}
+
+.lightgray_box
+{
+  background-color: #f2f2f2;
+  border: 1px solid #c2c2c2;
+}
+
+.red_box
+{
+  background-color: #900;
+  border: 1px solid #500;
+  color: white;
+}
+
+.yellow_box,
+a.gray_box:hover,
+a.lightgray_box:hover,
+a.blue_box:hover,
+a.red_box:hover,
+a.box:hover
+{
+  background-color: #ffffcc;
+}
+
+.yellow_box,
+a.gray_box:hover,
+a.lightgray_box:hover,
+a.blue_box:hover
+{
+  border: 1px solid #ffff00;
+}
+
+a.box
+{
+  text-align: center;
+}
+
+.error_msg
+{
+  text-align: center;
+  font-weight: bold;
+}
+

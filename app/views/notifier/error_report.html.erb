@@ -1,0 +1,19 @@
+Failed to create incident report delivery for group "<%= @group.name %>".
+The mail was unsuccessfully sendt to "<%= @group.notification_mail %>".
+
+Please correct the problem to prevent this from happening again.
+
+The incident that failed to deliver was "<%= @incident.title %>":
+<%= "#{admin_incidents_url}?id=#{@incident.id}" %>
+
+<% if delivery.errors.any? -%>
+  The reported errors were:
+
+  <% delivery.errors.each_full do |error| -%>
+    <%= error %>
+  <% end -%>
+<% end -%>
+
+You can correct the problem and then make an empty update to the incident to
+create new notifications (notice that those that previously got notifications
+will receive duplicates).

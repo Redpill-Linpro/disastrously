@@ -1,0 +1,38 @@
+<html>
+
+  <head>
+    <%= javascript_include_tag :defaults %>
+    <%= active_scaffold_includes %>
+
+    <%= stylesheet_link_tag "standard.css" %>
+    <%= stylesheet_link_tag "useful.css" %>
+    <%= stylesheet_link_tag "menu.css" %>
+    <%= stylesheet_link_tag "admin.css" %>
+    <%= stylesheet_link_tag "active_scaffold_overrides.css" %>
+
+    <% if File.exists? "public/stylesheets/#{controller.controller_name}.css" -%>
+      <%= stylesheet_link_tag "#{controller.controller_name}.css" %>
+    <% end -%>
+  </head>
+
+  <body>
+    <fieldset id="page" class="shadow">
+      <div id="page_filler">
+
+        <fieldset id="inner_page">
+          <%= render :partial => 'layouts/top_layout' %>
+          <%= render :partial => 'layouts/notices' %>
+
+          <%= yield %>
+        </fieldset>
+
+      </div>
+
+      <div id="footer">
+        <%= render :partial => 'layouts/footer' %>
+      </div>
+    </fieldset>
+  </body>
+
+</html>
+

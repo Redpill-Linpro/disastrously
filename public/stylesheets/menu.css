@@ -1,0 +1,77 @@
+fieldset.menu,
+table.menu
+{
+  width: 100%;
+  background-color: #f2f2f2;
+  border: 1px solid #c2c2c2;
+}
+
+.menu a.box
+{
+  padding: 0.1em 0;
+  text-align: left;
+}
+
+ul.menu
+{
+  clear: both;
+  margin: 0;
+  padding: 0;
+
+  /* no bullets */
+  list-style-type: none;
+  /* don't create space for bullets */
+  list-style-position: outside;
+
+  /* divide items into equally wide columns */
+  -moz-column-width: 9em;
+  -webkit-column-width: 9em;
+  column-width: 9em;
+
+  /* make sure the full width of the page is used */
+  -moz-column-count: 20;
+  -webkit-column-count: 20;
+  column-count: 20;
+}
+
+ul.menu li {
+  /* inline-block prevents the browser from splitting a single li item across
+   * multiple lines */
+  display: inline-block;
+}
+
+table.menu
+{
+  border-spacing: 0;
+}
+
+table.menu th
+{
+  background: #555;
+  color: white;
+  padding: 0.3em 0;
+}
+
+table.menu th.group-header
+{
+  text-align: left;
+  padding-left: 1em;
+}
+
+table.menu th.main-items
+{
+  text-align: right;
+}
+
+table.menu th a
+{
+  color: white;
+  padding: 0.3em 1em;
+}
+
+table.menu th a:hover
+{
+  color: #666;
+  background: white;
+}
+

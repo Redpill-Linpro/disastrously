@@ -1,0 +1,6 @@
+<fieldset>
+
+  <legend><%= "#{@period} #{@type.sub(/_/, " ")} for user #{@user.username}" %></legend>
+
+  <%= render :partial => "incidents" %>
+</fieldset>

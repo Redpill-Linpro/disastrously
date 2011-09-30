@@ -1,0 +1,37 @@
+<%= render :super %>
+
+<div>
+  <% incident_group = Group.find_by_name(@group_name) %>
+
+  <% directly_groups = incident_group.member_of %>
+  <% if directly_groups.any? %>
+    <p>
+      This group is directly a member of the following valid groups:
+    </p>
+
+    <ul>
+      <% directly_groups.each do |group| %>
+        <li><%= link_to group.name, list_groups_incidents_url(group) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% indirectly_groups = incident_group.all_member_of - directly_groups %>
+  <% if indirectly_groups.any? %>
+    <p>
+      This group is indirectly a member of the following valid groups:
+    </p>
+
+    <ul>
+      <% indirectly_groups.each do |group| %>
+        <li><%= link_to group.name, list_groups_incidents_url(group) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if directly_groups.empty? and indirectly_groups.empty? %>
+    <p>
+      This group is not a member of any other valid groups.
+    </p>
+  <% end %>
+</div>

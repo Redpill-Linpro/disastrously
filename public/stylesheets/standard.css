@@ -1,0 +1,123 @@
+body
+{
+  background-color: #E0E5E5;
+  margin: 0;
+}
+
+fieldset
+{
+  border-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+fieldset.header h1
+{
+  float: left;
+  margin: 0;
+  line-height: 65px;
+}
+
+fieldset.header img
+{
+  float: right;
+  margin-bottom: 1em;
+  border: none;
+}
+
+fieldset.header h1 a
+{
+  color: black;
+}
+
+a
+{
+  text-decoration: none;
+}
+
+#page
+{
+  background-color: #ffffff;
+  /* margin: 0.5em 0; */
+  text-align: left;
+  border: 1px solid #bbb;
+}
+
+#page_filler
+{
+  /* the min height should look good on most normal resolutions. */
+  /* my screen is 1600x1050, and in firefox this looks nice */
+  min-height: 40em;
+}
+
+#inner_page
+{
+/* we would have 1em padding on #page,
+ * but that would case the div to take up more space than the given 99%,
+ * so having a inner_page div with margin avoids that */
+  margin: 1em;
+}
+
+#footer
+{
+  margin: 1em;
+
+  text-align: right;
+
+  font-size: small;
+  font-weight: bold;
+}
+
+#footer .box
+{
+  padding: 0.3em 1em;
+  border: none;
+
+  background: #999;
+  color: white;
+}
+
+fieldset.medium_size
+{
+  width: 22em;
+}
+
+.submit
+{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.login
+{
+  margin: 3em auto;
+  width: 25em;
+}
+
+ul.delivery-table
+{
+  padding: 1em 0 1em 1em;
+  list-style: none;
+
+  -moz-column-width:    12em;
+  -webkit-column-width: 12em;
+  column-width:         12em;
+}
+
+.delivery-table li
+{
+  display: block;
+  /* sometimes an li item will span across two columns, so we fix that by using
+   * overflow:hidden to keep all text within the item together */
+  overflow: hidden;
+}
+
+.delivery-table .existing
+{
+  /*font-style: italic; */
+}
+
+.delivery-table .additional
+{
+  font-style: italic;
+}
