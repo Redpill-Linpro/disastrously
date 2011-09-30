@@ -1,9 +1,9 @@
 # User Documentation for Disastrously
 
-
 **Disastrously** is the name of a incident tracker for sysops. It is written
 entirely in Ruby on Rails (RoR).
 
+For other documentation, please see doc/index.md.
 
 ## About
 
