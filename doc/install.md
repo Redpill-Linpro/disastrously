@@ -31,7 +31,7 @@
 
 7.  Add disastrously plugin:
 
-    git clone git@github.com:redpill-linpro/disastrously.git vendor/plugins/disastrously
+    git clone git@github.com:Redpill-Linpro/disastrously.git vendor/plugins/disastrously
 
 8.  Add to Gemfile:
 
