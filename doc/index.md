@@ -24,25 +24,3 @@ Disastrously is an incident tracker written for Redpill Linpro.
 [User documentation](user.md)
 
 :   Information on using Disastrously.
-
-
-# Redpill Linpro
-
-[Open source](opensource.md)
-
-:   Issues and TODOs surrounding open sourcing Disastrously.
-
-[Wiki](https://wiki.redpill-linpro.com/Disastrously)
-
-:   In-house documentation (sysop doc etc.).
-
-
-It is recommended that you use a copy of the production database during
-testing, check out the Development doc above.
-
-Remember that we're going to open the code, so anything specific to Redpill
-Linpro has to be kept seperate. The plan is most likely to have a
-redpill-linpro branch that contains our specific changes and acts as our
-internal master, let staging branch off redpill-linpro, and let master be the
-official and public vendor branch. When vendor changes are made, add those to
-master and merge master into our own redpill-linpro branch.
